@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Third Camera
   - Camera
+  - Server
   layers:
   - Default
   - TransparentFX

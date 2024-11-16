@@ -658,6 +658,7 @@ MonoBehaviour:
   - {fileID: 449861108802899413, guid: fbfd51c9ec08dbd4289f59444e54e730, type: 3}
   characterSelectorPanel: {fileID: 5519027070641055260}
   canvasObject: {fileID: 4560498834502640925}
+  vrPlayerPrefab: {fileID: 8346052439305628361, guid: 02f9f99f5a6ae4640876c12dca5c9309, type: 3}
 --- !u!114 &613287265976927250
 MonoBehaviour:
   m_ObjectHideFlags: 0
