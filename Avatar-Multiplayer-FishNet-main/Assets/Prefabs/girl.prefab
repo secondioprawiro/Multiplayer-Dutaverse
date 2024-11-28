@@ -401,9 +401,11 @@ MonoBehaviour:
   - {fileID: 4480217149683922611}
   - {fileID: 5507451969582427325}
   - {fileID: 6819568855779783609}
+  - {fileID: 0}
+  - {fileID: 3627419596480805398}
   <SerializedRootNetworkBehaviour>k__BackingField: {fileID: 0}
   <NestedRootNetworkBehaviours>k__BackingField:
-  - {fileID: 4445737932464109489}
+  - {fileID: 2443848114857039475}
   SerializedTransformProperties:
     Position: {x: 3.35664, y: -0.0000004768372, z: 32.38962}
     Rotation: {x: 0, y: -0.92520314, z: 0, w: 0.3794724}
@@ -422,7 +424,7 @@ MonoBehaviour:
   _ownerInterpolation: 1
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 14
+  <PrefabId>k__BackingField: 17
   <SpawnableCollectionId>k__BackingField: 0
   _scenePathHash: 0
   <SceneId>k__BackingField: 0
@@ -500,7 +502,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 0
-  CinemachineCameraTarget: {fileID: 0}
+  CinemachineCameraTarget: {fileID: 599615647374135738}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -2994,14 +2996,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2443848114857039475}
     - target: {fileID: 5228332734805172203, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      propertyPath: _addedNetworkObject
+      value: 
+      objectReference: {fileID: 1066769815924805518}
+    - target: {fileID: 5228332734805172203, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: _networkObjectCache
       value: 
-      objectReference: {fileID: 4445737932464109489}
+      objectReference: {fileID: 1066769815924805518}
     - target: {fileID: 5228332734805172203, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: _componentIndexCache
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5146353323487269452, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
@@ -3018,17 +3025,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2836e36774ca1c4bbbee976e17b649c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4445737932464109489 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5146353323487269452, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
-  m_PrefabInstance: {fileID: 8852363882285278717}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7378177924333382277 stripped
@@ -3093,8 +3089,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637562412267016230, guid: 1da5341fc7aefbe4bae650dfba1867ad, type: 3}
+      propertyPath: <PrefabId>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637562412267016230, guid: 1da5341fc7aefbe4bae650dfba1867ad, type: 3}
       propertyPath: <ComponentIndex>k__BackingField
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637562412267016230, guid: 1da5341fc7aefbe4bae650dfba1867ad, type: 3}
       propertyPath: SerializedTransformProperties.Position.x
@@ -3139,7 +3139,7 @@ PrefabInstance:
     - target: {fileID: 6637562412267016230, guid: 1da5341fc7aefbe4bae650dfba1867ad, type: 3}
       propertyPath: <SerializedRootNetworkBehaviour>k__BackingField
       value: 
-      objectReference: {fileID: 3627419596480805398}
+      objectReference: {fileID: 120132892523556391}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

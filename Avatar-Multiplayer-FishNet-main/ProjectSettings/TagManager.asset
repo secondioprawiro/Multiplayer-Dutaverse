@@ -8,6 +8,10 @@ TagManager:
   - Third Camera
   - Camera
   - Server
+  - AmpunDJ
+  - MainCameraAndro
+  - MainCameraVR
+  - XR Origin
   layers:
   - Default
   - TransparentFX

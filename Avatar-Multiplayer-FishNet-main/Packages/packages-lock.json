@@ -277,7 +277,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.openxr.picoxr": {
-      "version": "file:D:/SEMESTER 7/KP/PICO Unity OpenXR Integration SDK-1.3.0-20241011",
+      "version": "file:D:/Maverick/Project/VirtualLabs/PicoVR/PICO Unity OpenXR Integration SDK_120",
       "depth": 0,
       "source": "local",
       "dependencies": {
