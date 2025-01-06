@@ -13867,7 +13867,7 @@ MonoBehaviour:
   _ipv6BindAddress: 
   _port: 7770
   _maximumClients: 4095
-  _clientAddress: 172.28.47.128
+  _clientAddress: 192.168.0.113
 --- !u!114 &1745655850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15273,7 +15273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1913184657
 RectTransform:
   m_ObjectHideFlags: 0

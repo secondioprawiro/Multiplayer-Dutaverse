@@ -15,7 +15,8 @@ public class CharacterSelection : NetworkBehaviour
     [SerializeField] private GameObject canvasObject; // Canvas containing character selection
     [SerializeField] private GameObject vrPlayerPrefab; // VR player prefab
     [SerializeField] private string cameraTag;
-    
+    private GameObject vrInstance;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -24,39 +25,21 @@ public class CharacterSelection : NetworkBehaviour
         {
             string deviceModel = SystemInfo.deviceModel;
             bool isVR = deviceModel.Contains("Pico");
+            GameObject cameraObject = GameObject.FindWithTag(cameraTag);
+            TMP_Text textDebug = cameraObject.GetComponentInChildren<TMP_Text>();
 
             if (isVR)
             {
-                // Spawn VR character if device is VR (e.g., Pico)
-                characterSelectorPanel.SetActive(false);
-                GameObject cameraObject = GameObject.FindWithTag(cameraTag);
-                if (cameraObject != null)
-                {
-                    characterSelectorPanel.SetActive(false);
-                    cameraObject.SetActive(false);
 
-                    bool isCameraActive = cameraObject.activeSelf;
-                    TMP_Text textDebug = cameraObject.GetComponentInChildren<TMP_Text>();
-
-                    if (textDebug != null)
-                    {
-                        textDebug.text = $"CameraObject Status: {(isCameraActive ? "Active" : "Inactive")}";
-                    }
-                    else
-                    {
-                        Debug.LogError("TMP_Text component not found on the Camera object.");
-                    }
-                }
-                else
-                {
-                    Debug.LogError("Camera object not found with the specified tag.");
-                }
+                bool isCameraActive = cameraObject.activeSelf;
+                textDebug.SetText("device: " + deviceModel + "camera? " + isCameraActive);
 
                 SpawnVRCharacter();
             }
             else
             {
                 Debug.Log("Non-VR device detected, showing character selection panel.");
+                textDebug.SetText(deviceModel);
                 canvasObject.SetActive(true);
             }
         }
@@ -86,12 +69,7 @@ public class CharacterSelection : NetworkBehaviour
     {
         if (IsOwner && vrPlayerPrefab != null)
         {
-            // Kirim permintaan spawn untuk karakter VR
             SpawnVRRequest(Owner);
-        }
-        else
-        {
-            Debug.LogError("VR prefab is not assigned or ownership issue.");
         }
     }
 
@@ -120,13 +98,6 @@ public class CharacterSelection : NetworkBehaviour
 
         GameObject prefabToSpawn = character[spawnIndex];
 
-        // Validasi spawn point
-        if (SpawnPoint.instance == null)
-        {
-            Debug.LogError("SpawnPoint.instance is null.");
-            return;
-        }
-
         // Spawn karakter
         GameObject playerInstance = Instantiate(
             prefabToSpawn,
@@ -134,36 +105,21 @@ public class CharacterSelection : NetworkBehaviour
             quaternion.identity
         );
         InstanceFinder.ServerManager.Spawn(playerInstance, conn);
-
-        Debug.Log($"Spawned {prefabToSpawn.name} for connection {conn.ClientId}.");
     }
 
     [ServerRpc(RequireOwnership = false)]
     private void SpawnVRRequest(NetworkConnection conn)
     {
-        // Validasi prefab VR
-        if (vrPlayerPrefab == null)
-        {
-            Debug.LogError("VR player prefab is not assigned.");
-            return;
-        }
-
-        // Validasi spawn point
-        if (SpawnPoint.instance == null)
-        {
-            Debug.LogError("SpawnPoint.instance is null.");
-            return;
-        }
 
         // Spawn karakter VR
-        GameObject vrInstance = Instantiate(
+        vrInstance = Instantiate(
             vrPlayerPrefab,
             SpawnPoint.instance.transform.position,
             quaternion.identity
         );
+
         InstanceFinder.ServerManager.Spawn(vrInstance, conn);
         Debug.Log($"Spawned VR player for connection {conn.ClientId}.");
     }
 }
-
 
